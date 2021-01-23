@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 300
   mp: 0
-  speed: 50
+  speed: 5
   attack: 20
   attackCD: 3
   skills: []

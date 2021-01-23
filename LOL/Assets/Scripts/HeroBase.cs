@@ -14,18 +14,6 @@ public class HeroBase : MonoBehaviour
     public int layer;
 
     /// <summary>
-    /// 動畫控制器
-    /// </summary>
-    private Animator ani;
-    /// <summary>
-    /// 技能計時器：累加時間用
-    /// </summary>
-    protected float[] skillTimer = new float[4];
-    /// <summary>
-    /// 技能是否開始
-    /// </summary>
-    protected bool[] skillStart = new bool[4];
-    /// <summary>
     /// 剛體
     /// </summary>
     private Rigidbody rig;
@@ -33,10 +21,6 @@ public class HeroBase : MonoBehaviour
     /// 血量
     /// </summary>
     private float hp;
-    /// <summary>
-    /// 畫布血條
-    /// </summary>
-    private Transform canvasHp;
     /// <summary>
     /// 血條文字
     /// </summary>
@@ -49,6 +33,23 @@ public class HeroBase : MonoBehaviour
     /// 血量最大值
     /// </summary>
     private float hpMax;
+    
+    /// <summary>
+    /// 動畫控制器
+    /// </summary>
+    protected Animator ani;
+    /// <summary>
+    /// 技能計時器：累加時間用
+    /// </summary>
+    protected float[] skillTimer = new float[4];
+    /// <summary>
+    /// 技能是否開始
+    /// </summary>
+    protected bool[] skillStart = new bool[4];
+    /// <summary>
+    /// 畫布血條
+    /// </summary>
+    protected Transform canvasHp;
     #endregion
 
     #region 事件
