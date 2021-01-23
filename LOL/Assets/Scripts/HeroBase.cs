@@ -20,7 +20,7 @@ public class HeroBase : MonoBehaviour
     /// <summary>
     /// 血量
     /// </summary>
-    private float hp;
+    protected float hp;
     /// <summary>
     /// 血條文字
     /// </summary>
@@ -50,6 +50,10 @@ public class HeroBase : MonoBehaviour
     /// 畫布血條
     /// </summary>
     protected Transform canvasHp;
+    /// <summary>
+    /// 普通攻擊計時器
+    /// </summary>
+    protected float timer;
     #endregion
 
     #region 事件
@@ -82,7 +86,7 @@ public class HeroBase : MonoBehaviour
     /// <summary>
     /// 受傷
     /// </summary>
-    public void Damage(float damage)
+    public virtual void Damage(float damage)
     {
         hp -= damage;
         textHp.text = hp.ToString();
@@ -93,14 +97,15 @@ public class HeroBase : MonoBehaviour
     /// <summary>
     /// 死亡
     /// </summary>
-    private void Dead()
+    protected void Dead(bool needRestart = true)
     {
         textHp.text = "0";
         enabled = false;
         ani.SetBool("死亡開關", true);
         gameObject.layer = 0;                       // 避免被鞭屍
 
-        Invoke("Restart", restartTime);             // 延遲重生
+        if (needRestart) Invoke("Restart", restartTime);             // 延遲重生
+        else Destroy(gameObject, 1.5f);
     }
     /// <summary>
     /// 重新開始
